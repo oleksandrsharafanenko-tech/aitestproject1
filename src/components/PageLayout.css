@@ -1,0 +1,249 @@
+/* Shared look for all chapter pages: aged parchment, leather and rust. */
+.page {
+  --paper: #f4e4c1;
+  --paper-dark: #e6cf9f;
+  --ink: #2e1a0e;
+  --ink-soft: #5c4128;
+  --rust: #a3401c;
+  --leather: #6b3d20;
+  --gold: #e0a13a;
+
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255, 255, 255, 0.35), transparent 60%),
+    radial-gradient(ellipse at 100% 100%, rgba(120, 70, 20, 0.18), transparent 55%),
+    var(--paper);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.06rem;
+  line-height: 1.65;
+}
+
+/* ---------- banner ---------- */
+.page-hero {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: min(68vh, 560px);
+  padding: 110px 16px 64px;
+  background-size: cover;
+  color: #fff1d0;
+}
+
+.page-hero__inner {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+.page-hero__kicker {
+  margin: 0 0 0.4rem;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.page-hero__title {
+  margin: 0;
+  max-width: 16ch;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.3rem, 6vw, 4.6rem);
+  line-height: 1.05;
+  text-shadow:
+    2px 2px 0 #84320f,
+    4px 4px 0 #5a200a,
+    6px 8px 18px rgba(0, 0, 0, 0.5);
+}
+
+.page-hero__intro {
+  max-width: 62ch;
+  margin: 1.1rem 0 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  color: #f3e3c3;
+}
+
+.page-hero__credit {
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  font-size: 0.7rem;
+  color: rgba(255, 241, 208, 0.65);
+  text-decoration: none;
+}
+
+/* ---------- content ---------- */
+.page-body {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 56px 16px 24px;
+}
+
+.section {
+  margin-bottom: 72px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 1.4rem;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+  line-height: 1.15;
+  color: var(--leather);
+}
+
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 6px;
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  opacity: 0.35;
+}
+
+.lead {
+  max-width: 70ch;
+  margin: 0 0 1.6rem;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+}
+
+.page p {
+  margin: 0 0 1rem;
+}
+
+.page a {
+  color: var(--rust);
+}
+
+.label {
+  font-family: 'Rye', Georgia, serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+  gap: 24px;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (max-width: 760px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.callout {
+  padding: 1.4rem 1.6rem;
+  background: var(--paper-dark);
+  border-left: 6px solid var(--rust);
+  border-radius: 4px;
+}
+
+.callout > :last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- photos ---------- */
+.photo {
+  margin: 0;
+}
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 6px solid #fff8e8;
+  box-shadow: 0 6px 18px rgba(46, 26, 14, 0.25);
+}
+
+.photo figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 0.5rem;
+}
+
+.photo-caption {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.photo-credit {
+  font-size: 0.72rem;
+  color: var(--ink-soft) !important;
+  opacity: 0.75;
+  text-decoration: none;
+}
+
+.photo-credit:hover {
+  text-decoration: underline;
+}
+
+/* ---------- footer ---------- */
+.page-footer {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 0 16px 48px;
+}
+
+.page-sources {
+  padding-top: 24px;
+  border-top: 2px dashed rgba(46, 26, 14, 0.25);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.page-sources h2 {
+  margin: 0 0 0.5rem;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+.page-sources ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.2rem;
+  margin: 0 0 0.6rem;
+  padding: 0;
+  list-style: none;
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.pager a {
+  padding: 0.7rem 1.2rem;
+  font-family: 'Rye', Georgia, serif;
+  color: #fff1d0 !important;
+  text-decoration: none;
+  background: linear-gradient(180deg, #8a5532, #5e351c);
+  border: 2px solid #2e180b;
+  border-radius: 6px;
+}
+
+.pager a:hover {
+  background: linear-gradient(180deg, #a3401c, #7a2c12);
+}

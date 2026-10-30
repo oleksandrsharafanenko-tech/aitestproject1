@@ -1,0 +1,175 @@
+.songbook {
+  padding: 1.6rem 1.8rem;
+  background:
+    repeating-linear-gradient(180deg, transparent 0 31px, rgba(46, 26, 14, 0.12) 31px 32px),
+    #fbf1d9;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  box-shadow: 6px 6px 0 var(--leather);
+}
+
+.songbook ol {
+  margin: 0.4rem 0 1.4rem;
+  padding-left: 1.4rem;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 2;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.9rem;
+  color: #fff1d0;
+  background: var(--leather);
+  border-radius: 999px;
+}
+
+/* record sleeves with a disc sliding out on hover */
+.records {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr));
+  gap: 36px 28px;
+}
+
+.record__sleeve {
+  position: relative;
+  margin-right: 36px;
+}
+
+.record .photo {
+  position: relative;
+  z-index: 1;
+}
+
+.record .photo img {
+  aspect-ratio: 1;
+  border: 0;
+  filter: sepia(0.2) contrast(1.05);
+  box-shadow: 4px 6px 14px rgba(46, 26, 14, 0.35);
+}
+
+.record .photo figcaption {
+  margin-top: 0.3rem;
+}
+
+.record__disc {
+  position: absolute;
+  top: 4%;
+  right: -36px;
+  width: 92%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #e9dcc0 0 3%, var(--label) 3.5% 30%, transparent 30.5%),
+    repeating-radial-gradient(circle, #151515 0 2px, #262626 2px 4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.5s ease;
+}
+
+.record__disc span {
+  width: 26%;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 0.5rem;
+  line-height: 1.15;
+  text-align: center;
+  color: #fff1d0;
+}
+
+.record:hover .record__disc {
+  transform: translateX(14px) rotate(160deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .record__disc {
+    transition: none;
+  }
+}
+
+.record h3 {
+  margin: 1rem 0 0;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+
+.record__tag {
+  margin: 0 0 0.5rem !important;
+  font-style: italic;
+  color: var(--rust);
+}
+
+.record p {
+  font-size: 0.96rem;
+}
+
+.record__hit {
+  font-family: 'Rye', Georgia, serif;
+  font-size: 0.9rem !important;
+  color: var(--leather);
+}
+
+/* Opry banner */
+.opry {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 2rem;
+  color: #fff1d0;
+  background:
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0) 0 40px, rgba(0, 0, 0, 0.06) 40px 42px),
+    linear-gradient(180deg, #7a2c12, #4a1a0a);
+  border: 3px solid var(--ink);
+  border-radius: 6px;
+}
+
+.opry h2 {
+  margin: 0 0 0.4rem;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 2rem;
+  color: var(--gold);
+}
+
+.opry p {
+  margin: 0;
+}
+
+.opry__date {
+  display: grid;
+  place-items: center;
+  width: 140px;
+  aspect-ratio: 1;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: #2e1a0e;
+  background: var(--gold);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 6px #2e1a0e, inset 0 0 0 9px var(--gold), inset 0 0 0 11px #2e1a0e;
+  text-align: center;
+  align-content: center;
+}
+
+.opry__date span {
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 600px) {
+  .opry {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+}

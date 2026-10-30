@@ -1,0 +1,153 @@
+.scene {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 520px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #c4410f;
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+/* The photo's sun sits 36% across and 34% down the photo, i.e. 9.6vh left of
+   centre. This soft glow carries its light out across the generated sky. */
+.scene__sunglow {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: radial-gradient(
+    circle at calc(50% - 9.6vh) 34%,
+    rgba(255, 196, 80, 0.38),
+    rgba(255, 150, 40, 0.12) 45vh,
+    transparent 85vh
+  );
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* Silhouette scenery either side of the photo. The photo is 1600×2338, so at full
+   height it is 68.4vh wide; each side reaches 12vh under the photo's faded edge. */
+.scenery {
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  width: calc((100vw - 68.4vh) / 2 + 12vh);
+  height: 100%;
+  pointer-events: none;
+}
+
+.scenery--left {
+  left: 0;
+  -webkit-mask-image: linear-gradient(90deg, #000 75%, transparent);
+  mask-image: linear-gradient(90deg, #000 75%, transparent);
+}
+
+.scenery--right {
+  right: 0;
+  -webkit-mask-image: linear-gradient(270deg, #000 75%, transparent);
+  mask-image: linear-gradient(270deg, #000 75%, transparent);
+}
+
+/* no room for side scenery when the screen is narrower than the photo */
+@media (max-aspect-ratio: 4/5) {
+  .scenery {
+    display: none;
+  }
+}
+
+/* Full-height photo, edges faded into the glow. On narrow screens it is wider
+   than the viewport and simply gets cropped at the sides. */
+.scene__photo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: -1;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  transform: translateX(-50%);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+}
+
+/* darken the ground so the title reads clearly */
+.scene::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 42%;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent, rgba(20, 6, 2, 0.75));
+  pointer-events: none;
+}
+
+.hero {
+  position: absolute;
+  inset: auto 0 5vh 0;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.title-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ornament {
+  color: #ffe2a3;
+  font-size: clamp(0.9rem, 2vw, 1.3rem);
+  letter-spacing: 0.4em;
+  text-shadow: 2px 2px 0 #5a1f10;
+}
+
+.title {
+  margin: 0;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 6.5vw, 5.5rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: #fff1d0;
+  /* stacked shadows give a carved, old-poster 3D look */
+  text-shadow:
+    1px 1px 0 #c4561f,
+    2px 2px 0 #b04818,
+    3px 3px 0 #9a3c14,
+    4px 4px 0 #84320f,
+    5px 5px 0 #6e280c,
+    8px 10px 18px rgba(30, 8, 0, 0.55);
+}
+
+.title span {
+  display: inline-block;
+}
+
+.rule {
+  width: min(520px, 70vw);
+  height: 6px;
+  margin-top: 0.6rem;
+  border-top: 2px solid #ffe2a3;
+  border-bottom: 2px solid #ffe2a3;
+  opacity: 0.85;
+}
+
+.scene__credit {
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  font-family: Georgia, serif;
+  font-size: 0.7rem;
+  color: rgba(255, 241, 208, 0.6);
+  text-decoration: none;
+}
+
+.scene__credit:hover {
+  text-decoration: underline;
+}

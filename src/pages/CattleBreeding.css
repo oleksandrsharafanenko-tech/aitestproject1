@@ -1,0 +1,155 @@
+/* breed "stock cards" */
+.breeds {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 460px), 1fr));
+  gap: 28px;
+}
+
+.breed {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  background: #fbf1d9;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.breed .photo img {
+  border: 0;
+  box-shadow: none;
+  border-right: 2px solid var(--ink);
+}
+
+.breed .photo figcaption {
+  display: none;
+}
+
+.breed__body {
+  padding: 1.1rem 1.3rem;
+}
+
+.breed h3 {
+  margin: 0 0 0.6rem;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.45rem;
+  color: var(--leather);
+}
+
+.breed dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.15rem 0.8rem;
+  margin: 0 0 0.8rem;
+  font-size: 0.92rem;
+}
+
+.breed dt {
+  font-family: 'Rye', Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rust);
+  padding-top: 0.2rem;
+}
+
+.breed dd {
+  margin: 0;
+}
+
+.breed__body > p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 520px) {
+  .breed {
+    grid-template-columns: 1fr;
+  }
+  .breed .photo img {
+    aspect-ratio: 16 / 9;
+    border-right: 0;
+    border-bottom: 2px solid var(--ink);
+  }
+}
+
+/* seasons */
+.seasons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-radius: 6px;
+  overflow: hidden;
+  color: #fff1d0;
+}
+
+.season {
+  padding: 1.6rem 1.4rem;
+  min-height: 170px;
+}
+
+.season h3 {
+  margin: 0 0 0.4rem;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.season p {
+  margin: 0;
+  font-size: 0.97rem;
+}
+
+.season--spring { background: #5f7a3a; }
+.season--summer { background: #c17a1e; }
+.season--autumn { background: #a3401c; }
+.season--winter { background: #44506a; }
+
+/* branding irons */
+.brands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.brands li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 0.8rem;
+  color: var(--leather);
+}
+
+.brands svg {
+  width: 74px;
+  height: 74px;
+  padding: 6px;
+  background: #b98a5e;
+  border-radius: 50%;
+  fill: none;
+  stroke: #3a1a0c;
+  stroke-width: 6;
+  stroke-linecap: round;
+  box-shadow: inset 0 0 0 3px rgba(58, 26, 12, 0.25);
+}
+
+.brands text {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-size: 54px;
+  text-anchor: middle;
+  fill: #3a1a0c;
+  stroke: none;
+}
+
+.branding-photo img {
+  aspect-ratio: 4 / 5;
+}

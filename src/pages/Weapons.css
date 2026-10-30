@@ -1,0 +1,170 @@
+/* Museum display case: dark wood frames, velvet backing, brass labels. */
+.page--weapons .page-body {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+
+.page--weapons .page-body > .section {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 56px 16px 0;
+}
+
+.page--weapons .page-body > .section:first-child {
+  width: 100%;
+  max-width: none;
+  padding: 56px max(16px, calc((100% - 1068px) / 2)) 64px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255, 210, 140, 0.12), transparent 60%),
+    #2a120c;
+}
+
+.page--weapons .page-body > .section:first-child .section-title {
+  color: var(--gold);
+}
+
+.exhibits {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 480px), 1fr));
+  gap: 28px;
+}
+
+.exhibit {
+  display: flex;
+  flex-direction: column;
+  background: #3b1a12;
+  border: 10px solid #5a2f18;
+  border-image: linear-gradient(135deg, #7a4626, #4a2410, #7a4626) 1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  color: #f1dfbd;
+}
+
+.exhibit__media {
+  position: relative;
+  background: radial-gradient(ellipse at center, #6e1f1f, #3a0f0f);
+}
+
+.exhibit .photo img {
+  aspect-ratio: 16 / 9;
+  border: 0;
+  box-shadow: none;
+}
+
+.exhibit .photo figcaption {
+  position: absolute;
+  right: 8px;
+  bottom: 4px;
+}
+
+.exhibit .photo-credit {
+  color: rgba(255, 241, 208, 0.7) !important;
+}
+
+.exhibit__number {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 0.2rem 0.7rem;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 0.85rem;
+  color: #3a1f0c;
+  background: linear-gradient(180deg, #f2d27b, #b88a2e);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.exhibit__body {
+  padding: 1.3rem 1.5rem 1.4rem;
+}
+
+.exhibit h3 {
+  margin: 0;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #fff1d0;
+}
+
+.exhibit__nick {
+  margin: 0.1rem 0 1rem !important;
+  font-style: italic;
+  color: var(--gold);
+}
+
+.exhibit__specs {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.exhibit__specs th,
+.exhibit__specs td {
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(241, 223, 189, 0.15);
+  text-align: left;
+  vertical-align: top;
+}
+
+.exhibit__specs th {
+  width: 34%;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #d39a5a;
+}
+
+.exhibit__body > p:last-child {
+  margin: 0;
+  font-size: 0.96rem;
+}
+
+/* myth vs reality */
+.myths {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.myth {
+  position: relative;
+  padding: 1.3rem 1.5rem;
+  background: #fbf1d9;
+  border: 2px dashed rgba(46, 26, 14, 0.4);
+  border-radius: 4px;
+}
+
+.myth p {
+  margin: 0;
+}
+
+.myth__tag {
+  margin-bottom: 0.4rem !important;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 1.3rem;
+  color: #8a8a8a;
+  text-decoration: line-through;
+}
+
+.myth--real {
+  background: var(--leather);
+  border: 2px solid var(--ink);
+  color: #fff1d0;
+}
+
+.myth--real .myth__tag {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .myths {
+    grid-template-columns: 1fr;
+  }
+  .myth--real {
+    margin-bottom: 12px;
+  }
+}

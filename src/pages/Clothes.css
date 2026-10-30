@@ -1,0 +1,86 @@
+/* Old outfitter's catalogue: zig-zag rows with item tags. */
+.outfit {
+  margin: 0 0 56px;
+  padding: 0;
+  list-style: none;
+}
+
+.outfit__item {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 40px 0;
+  border-bottom: 2px dashed rgba(46, 26, 14, 0.25);
+}
+
+.outfit__item:nth-child(even) .outfit__media {
+  order: 2;
+}
+
+.outfit__item:nth-child(even) {
+  grid-template-columns: 1fr 340px;
+}
+
+.outfit__media .photo img {
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: #fff8e8;
+}
+
+.bandana {
+  display: block;
+  width: 100%;
+  transform: rotate(-6deg);
+  filter: drop-shadow(0 8px 14px rgba(46, 26, 14, 0.3));
+}
+
+.outfit__tag {
+  display: inline-flex;
+  gap: 0.8rem;
+  margin: 0 0 0.6rem !important;
+  padding: 0.3rem 0.8rem;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff1d0;
+  background: var(--leather);
+  border-radius: 3px;
+  clip-path: polygon(0 0, 100% 0, 94% 50%, 100% 100%, 0 100%);
+  padding-right: 1.6rem;
+}
+
+.outfit__tag span {
+  opacity: 0.6;
+}
+
+.outfit__text h2 {
+  margin: 0;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.outfit__why {
+  margin: 0.2rem 0 0.9rem !important;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--rust);
+}
+
+@media (max-width: 760px) {
+  .outfit__item,
+  .outfit__item:nth-child(even) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .outfit__item:nth-child(even) .outfit__media {
+    order: 0;
+  }
+  .outfit__media {
+    max-width: 320px;
+  }
+}

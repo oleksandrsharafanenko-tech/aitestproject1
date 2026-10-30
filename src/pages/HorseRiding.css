@@ -1,0 +1,175 @@
+/* comparison table: tooled leather header */
+.compare-wrap {
+  overflow-x: auto;
+}
+
+.compare {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  background: #fbf1d9;
+  border: 2px solid var(--ink);
+}
+
+.compare th,
+.compare td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(46, 26, 14, 0.18);
+}
+
+.compare thead th {
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: #fff1d0;
+  background: var(--leather);
+}
+
+.compare thead th:nth-child(2) {
+  background: var(--rust);
+}
+
+.compare tbody th {
+  width: 20%;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+
+.compare td:nth-child(2) {
+  font-weight: 700;
+  background: rgba(163, 64, 28, 0.07);
+}
+
+/* saddle anatomy */
+.saddle .photo img {
+  aspect-ratio: 1;
+}
+
+.saddle-parts {
+  margin: 0;
+}
+
+.saddle-parts > div {
+  padding: 0.7rem 0;
+  border-bottom: 1px dashed rgba(46, 26, 14, 0.3);
+}
+
+.saddle-parts dt {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 1.15rem;
+  color: var(--leather);
+}
+
+.saddle-parts dt span {
+  display: grid;
+  place-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  font-size: 0.85rem;
+  color: #fff1d0;
+  background: var(--rust);
+  border-radius: 50%;
+}
+
+.saddle-parts dd {
+  margin: 0.2rem 0 0 2.5rem;
+  font-size: 0.97rem;
+}
+
+/* horse breeds */
+.horses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 28px;
+}
+
+.horse {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.horse .photo img {
+  aspect-ratio: 1;
+}
+
+.horse h3 {
+  margin: 0 0 0.3rem;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+
+.horse__stat {
+  margin-bottom: 0.6rem !important;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.horse__stat strong {
+  display: block;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: var(--rust);
+}
+
+@media (max-width: 480px) {
+  .horse {
+    grid-template-columns: 1fr;
+  }
+}
+
+.remuda {
+  margin-top: 28px;
+}
+
+/* skills as horseshoe-topped cards */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: 20px;
+}
+
+.skill {
+  position: relative;
+  padding: 2.4rem 1.3rem 1.2rem;
+  background: #fbf1d9;
+  border: 1px solid rgba(46, 26, 14, 0.25);
+  border-radius: 4px;
+}
+
+.skill::before {
+  content: '';
+  position: absolute;
+  top: -18px;
+  left: 1.3rem;
+  width: 36px;
+  height: 36px;
+  border: 7px solid var(--leather);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  background: var(--paper);
+}
+
+.skill h3 {
+  margin: 0 0 0.3rem;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.skill p {
+  margin: 0;
+  font-size: 0.96rem;
+}

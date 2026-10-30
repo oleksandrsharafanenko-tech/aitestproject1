@@ -1,0 +1,96 @@
+/* Passport-stamp cards with perforated edges. */
+.stamps {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 32px;
+}
+
+.stamp {
+  position: relative;
+  padding: 10px;
+  background: #fbf1d9;
+  /* perforated edge: solid content box plus a row of holes in the padding */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    radial-gradient(circle 5px at 8px 8px, transparent 98%, #000) -8px -8px / 16px 16px;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    radial-gradient(circle 5px at 8px 8px, transparent 98%, #000) -8px -8px / 16px 16px;
+}
+
+.stamp .photo img {
+  aspect-ratio: 4 / 3;
+  border: 0;
+  box-shadow: none;
+  filter: sepia(0.25);
+}
+
+.stamp .photo figcaption {
+  padding: 0 0.4rem;
+}
+
+.stamp__body {
+  position: relative;
+  padding: 0.8rem 0.9rem 1rem;
+  border: 2px solid var(--ink);
+  margin-top: 0.6rem;
+}
+
+.stamp__seal {
+  position: absolute;
+  top: -28px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 0.85rem;
+  color: var(--rust);
+  background: #fbf1d9;
+  border: 3px double var(--rust);
+  border-radius: 50%;
+  transform: rotate(-14deg);
+}
+
+.stamp__country {
+  margin: 0 !important;
+  padding-right: 72px;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+
+.stamp h3 {
+  margin: 0 0 0.6rem;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1.1;
+}
+
+.stamp dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2rem 0.8rem;
+  margin: 0 0 0.8rem;
+  padding-bottom: 0.8rem;
+  font-size: 0.9rem;
+  border-bottom: 1px dashed rgba(46, 26, 14, 0.3);
+}
+
+.stamp dt {
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.stamp dd {
+  margin: 0;
+}
+
+.stamp__body > p:last-child {
+  margin: 0;
+  font-size: 0.95rem;
+}

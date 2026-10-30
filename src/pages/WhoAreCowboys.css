@@ -1,0 +1,154 @@
+/* "Wanted poster" definition card */
+.definition {
+  position: relative;
+  padding: 2rem 2rem 1.6rem;
+  background: #fbf1d9;
+  border: 2px solid var(--ink);
+  outline: 6px double var(--ink);
+  outline-offset: 6px;
+}
+
+.definition__word {
+  margin: 0.2rem 0 1rem;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  line-height: 1;
+}
+
+.definition__word span {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.definition__origin {
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(46, 26, 14, 0.35);
+  font-size: 0.95rem;
+}
+
+.who-painting img {
+  aspect-ratio: 4 / 3;
+}
+
+/* numbered job list */
+.jobs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: job;
+}
+
+.jobs li {
+  position: relative;
+  padding: 1.2rem 1.2rem 1rem 4.2rem;
+  background: #fbf1d9;
+  border: 1px solid rgba(46, 26, 14, 0.2);
+  border-radius: 4px;
+  counter-increment: job;
+}
+
+.jobs li::before {
+  content: counter(job);
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: grid;
+  place-items: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  font-family: 'Rye', Georgia, serif;
+  color: #fff1d0;
+  background: var(--rust);
+  border-radius: 50%;
+}
+
+.jobs h3 {
+  margin: 0 0 0.2rem;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.15rem;
+}
+
+.jobs p {
+  margin: 0;
+  font-size: 0.97rem;
+}
+
+/* stats band */
+.who-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  margin-bottom: 36px;
+  background: var(--leather);
+  color: #fff1d0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.who-stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 1.4rem 1.6rem;
+}
+
+.who-stats div + div {
+  border-left: 1px dashed rgba(255, 241, 208, 0.3);
+}
+
+.who-stats strong {
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 2.2rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+/* portrait cards */
+.people {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: 28px;
+}
+
+.person .photo img {
+  aspect-ratio: 3 / 4;
+  filter: sepia(0.35);
+}
+
+.person__text h3 {
+  margin: 0.6rem 0 0;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.35rem;
+}
+
+.person__text p:last-child {
+  font-size: 0.97rem;
+}
+
+.code-quote {
+  margin: 0;
+  padding: 2.4rem 2rem;
+  text-align: center;
+  font-family: 'Rye', Georgia, serif;
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  line-height: 1.35;
+  color: var(--leather);
+  border-top: 6px double var(--leather);
+  border-bottom: 6px double var(--leather);
+}
+
+.code-quote cite {
+  display: block;
+  margin-top: 1rem;
+  font-family: Georgia, serif;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}

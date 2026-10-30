@@ -1,0 +1,195 @@
+/* Old movie palace: dark auditorium, film-strip edges, ticket stubs. */
+.page--movies {
+  --paper: #1b0f0b;
+  --paper-dark: #2a1812;
+  --ink: #f1dfbd;
+  --ink-soft: #c9b28f;
+  --leather: #e0a13a;
+}
+
+.page--movies .page-sources {
+  border-top-color: rgba(241, 223, 189, 0.25);
+}
+
+.eras {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 2px solid #e0a13a;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.eras li {
+  flex: 1;
+  padding: 0.9rem 1rem;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  color: #fff1d0;
+}
+
+.eras li span {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-family: Georgia, serif;
+  font-size: 0.8rem;
+  color: #e0a13a;
+}
+
+.eras li + li {
+  border-left: 1px solid rgba(224, 161, 58, 0.4);
+}
+
+.eras li:nth-child(odd) {
+  background: rgba(224, 161, 58, 0.08);
+}
+
+@media (max-width: 760px) {
+  .eras {
+    flex-direction: column;
+  }
+  .eras li + li {
+    border-left: 0;
+    border-top: 1px solid rgba(224, 161, 58, 0.4);
+  }
+}
+
+/* film cards */
+.films {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 32px 28px;
+}
+
+.film {
+  display: flex;
+  flex-direction: column;
+}
+
+/* sprocket holes along the poster edges */
+.film__poster {
+  position: relative;
+  padding: 0 18px;
+  background: #0b0605;
+}
+
+.film__poster::before,
+.film__poster::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 18px;
+  background: radial-gradient(circle, #d9c7a5 0 3px, transparent 3.5px) center / 18px 16px repeat-y;
+  opacity: 0.55;
+}
+
+.film__poster::before {
+  left: 0;
+}
+
+.film__poster::after {
+  right: 0;
+}
+
+.film .photo img {
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border: 0;
+  box-shadow: none;
+}
+
+.film .photo figcaption {
+  display: none;
+}
+
+.type-poster {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  aspect-ratio: 2 / 3;
+  padding: 1.6rem 1.2rem;
+  text-align: center;
+}
+
+.type-poster strong {
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  line-height: 1.1;
+}
+
+.type-poster__tag {
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.type-poster__year {
+  font-family: 'Rye', Georgia, serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.3em;
+}
+
+.type-poster--yellow {
+  color: #2a120c;
+  background:
+    radial-gradient(circle at 50% 60%, transparent 0 34%, rgba(0, 0, 0, 0.12) 35% 36%, transparent 37%),
+    linear-gradient(180deg, #f2c14e, #d8862a);
+}
+
+.type-poster--grey {
+  color: #e9e2d6;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.6)),
+    linear-gradient(160deg, #6f6a62, #2b2824);
+}
+
+.type-poster--blue {
+  color: #f6ecd8;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, #3b2a1a 60.5%),
+    linear-gradient(180deg, #23365a, #7b8fa8);
+}
+
+/* ticket stub under each poster */
+.film__ticket {
+  flex: 1;
+  padding: 1.1rem 1.3rem 1.2rem;
+  color: #2e1a0e;
+  background: #f4e4c1;
+  border-top: 3px dashed #1b0f0b;
+  -webkit-mask:
+    radial-gradient(circle at 0 0, transparent 12px, #000 12.5px) top left / 51% 100% no-repeat,
+    radial-gradient(circle at 100% 0, transparent 12px, #000 12.5px) top right / 51% 100% no-repeat;
+  mask:
+    radial-gradient(circle at 0 0, transparent 12px, #000 12.5px) top left / 51% 100% no-repeat,
+    radial-gradient(circle at 100% 0, transparent 12px, #000 12.5px) top right / 51% 100% no-repeat;
+}
+
+.film__year {
+  margin: 0 !important;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.25em;
+  color: #a3401c;
+}
+
+.film h3 {
+  margin: 0.1rem 0 0.4rem;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.15;
+}
+
+.film__meta {
+  font-size: 0.85rem;
+  color: #5c4128;
+}
+
+.film__ticket > p:last-child {
+  margin: 0;
+  font-size: 0.95rem;
+}

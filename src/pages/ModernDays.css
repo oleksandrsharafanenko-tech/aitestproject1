@@ -1,0 +1,130 @@
+/* Arena scoreboard with bulb-style digits. */
+.scoreboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 4px;
+  padding: 4px;
+  background: #111;
+  border: 6px solid #3b3b3b;
+  border-radius: 8px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.scoreboard__cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1.3rem 1.4rem;
+  background: #1c1c1c;
+  color: #d9d2c3;
+  font-size: 0.92rem;
+}
+
+.scoreboard__cell strong {
+  font-family: 'Courier New', monospace;
+  font-size: 3.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffb02e;
+  text-shadow: 0 0 10px rgba(255, 176, 46, 0.7), 0 0 2px #ffde8a;
+}
+
+.scoreboard__unit {
+  font-family: 'Rye', Georgia, serif;
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff1d0;
+}
+
+/* rodeo events */
+.events {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  gap: 24px;
+}
+
+.event {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #2e1a0e;
+  color: #fff1d0;
+}
+
+.event .photo img {
+  aspect-ratio: 9 / 14;
+  border: 0;
+  box-shadow: none;
+  transition: transform 0.4s ease;
+}
+
+.event:hover .photo img {
+  transform: scale(1.05);
+}
+
+.event .photo figcaption {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  z-index: 1;
+}
+
+.event .photo-credit {
+  color: rgba(255, 241, 208, 0.8) !important;
+  text-shadow: 0 1px 2px #000;
+}
+
+.event__body {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 3rem 1.2rem 1.1rem;
+  background: linear-gradient(180deg, transparent, rgba(20, 8, 4, 0.92) 40%);
+}
+
+.event__type {
+  margin: 0 !important;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #ffb02e;
+}
+
+.event h3 {
+  margin: 0.1rem 0 0.3rem;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.35rem;
+}
+
+.event__body p:last-child {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+/* today: two-column list with rope dividers */
+.today {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 0 48px;
+}
+
+.today__item {
+  padding: 1.2rem 0;
+  border-top: 4px solid transparent;
+  border-image: repeating-linear-gradient(-45deg, #b98a4e 0 5px, #8a6230 5px 10px) 4;
+}
+
+.today__item h3 {
+  margin: 0 0 0.3rem;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: var(--leather);
+}
+
+.today__item p {
+  margin: 0;
+}

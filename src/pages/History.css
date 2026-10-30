@@ -1,0 +1,122 @@
+/* Vertical timeline strung along a rope. */
+.timeline {
+  position: relative;
+  margin: 0 0 64px;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 6px;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    -45deg,
+    #b98a4e 0 6px,
+    #8a6230 6px 12px
+  );
+  border-radius: 3px;
+}
+
+.timeline__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 72px;
+  align-items: center;
+  margin-bottom: 56px;
+}
+
+.timeline__year {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -30%);
+  padding: 0.35rem 0.9rem;
+  font-family: 'Rye', Georgia, serif;
+  font-size: 1.05rem;
+  color: #fff1d0;
+  white-space: nowrap;
+  background: var(--rust);
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+}
+
+.timeline__card {
+  padding: 2.2rem 1.6rem 1.4rem;
+  background: #fbf1d9;
+  border: 1px solid rgba(46, 26, 14, 0.25);
+  border-radius: 4px;
+  box-shadow: 0 4px 14px rgba(46, 26, 14, 0.12);
+}
+
+.timeline__card h2 {
+  margin: 0 0 0.5rem;
+  font-family: 'Rye', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  color: var(--leather);
+}
+
+.timeline__card p {
+  margin: 0;
+}
+
+.timeline__photo img {
+  aspect-ratio: 16 / 10;
+}
+
+/* alternate sides */
+.timeline__item:nth-child(even) .timeline__card {
+  order: 2;
+}
+
+/* text-only events sit centred on the rope */
+.timeline__item--text {
+  grid-template-columns: minmax(0, 560px);
+  justify-content: center;
+}
+
+.timeline__item--text .timeline__card {
+  order: 0 !important;
+  text-align: center;
+  background: var(--leather);
+  color: #fff1d0;
+}
+
+.timeline__item--text .timeline__card h2 {
+  color: var(--gold);
+}
+
+@media (max-width: 760px) {
+  .timeline::before {
+    left: 14px;
+  }
+
+  .timeline__item,
+  .timeline__item--text {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-left: 40px;
+    justify-content: stretch;
+  }
+
+  .timeline__year {
+    left: 40px;
+    transform: translateY(-40%);
+  }
+
+  .timeline__item:nth-child(even) .timeline__card {
+    order: 0;
+  }
+
+  .timeline__item--text .timeline__card {
+    text-align: left;
+  }
+}
